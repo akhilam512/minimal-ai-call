@@ -21,7 +21,7 @@ import {
   IconCircleCheck,
 } from '@tabler/icons-react';
 import { PROMPTS, DEMO_FUNCTIONS } from '@/config/prompts';
-import { voiceGroupings, voicesByLanguage } from '@/app/voiceOptions';
+import { voiceGroupings, voicesByLanguage, getVoiceName } from '@/app/voiceOptions';
 
 type VoiceOption = {
   label: string;
@@ -59,7 +59,7 @@ const getVoiceColor = (voiceId: string): string => {
     .map((voice) => voice as VoiceOption);
   const voice = allVoices.find((v) => v.value === voiceId);
   if (!voice) return 'bg-blue-100';
-  const gender = voice.labels[0];
+  const gender = voice.labels.find(label => label === 'female' || label === 'male') || 'female';
   if (!voiceColors[gender]) return 'bg-blue-100';
   const lastChar = voiceId.slice(-1);
   const colorIndex = parseInt(lastChar, 16) % voiceColors[gender].length;
@@ -693,13 +693,6 @@ export default function WebCallInterfaceMinimal() {
     const randomVoice = voicesToSelectFrom[Math.floor(Math.random() * voicesToSelectFrom.length)];
     setCurrentVoiceId(randomVoice);
     return randomVoice;
-  };
-
-  const getVoiceName = (voiceId: string): string => {
-    const voice = Object.values(voicesByLanguage)
-      .flat()
-      .find((v) => v.value === voiceId);
-    return voice ? voice.label : '';
   };
 
   return (
