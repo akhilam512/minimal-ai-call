@@ -1,6 +1,8 @@
 # Minimal AI Call
 
-A lightweight Next.js application demonstrating voice AI integration using [Daily Bots](https://www.daily.co/products/daily-bots/) and [Pipecat](https://github.com/pipecat-ai/pipecat).
+A lightweight Next.js app demonstrating voice AI integration using [Daily Bots](https://www.daily.co/products/daily-bots/) and [Pipecat](https://github.com/pipecat-ai/pipecat).
+
+![minimal](https://github.com/user-attachments/assets/434d03be-3105-4d8d-9ee4-65a7b11bd9f5)
 
 Key features:
 - Real-time voice conversations with AI agents
@@ -12,7 +14,7 @@ Key features:
 ## Stack
 
 - **Frontend**: Next.js, React, TailwindCSS
-- **Voice AI**: Daily Bots (hosted Pipecat)
+- **Voice AI deployment**: Daily Bots (hosted Pipecat)
 - **AI Integration**: 
   - Pipecat client libraries (`@pipecat-ai/client-js`, `@pipecat-ai/client-react`)
   - Daily transport (`@pipecat-ai/daily-transport`)
